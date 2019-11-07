@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 3;
+
+    .mat-toolbar {
+        background: inherit;
+        color: inherit;
+        /*box-shadow: 0px -1px 1px -1px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.14), 0px -1px 3px 0px rgba(0, 0, 0, 0.12);*/
+    }
+
+    &.above {
+        position: relative;
+        z-index: 99;
+    }
+}
+
+.referal-outer  {
+    font-size: 14px;  letter-spacing: 0.9px !important;    
+    font-family: 'coheadlinew08-lightregular', sans-serif; width: 31%; display: inherit;
+    text-align: right;
+
+    @media screen and (min-width:200px) and (max-width:399px){   
+        display: flex; place-content: center;
+      }
+
+      @media screen and (min-width:400px) and (max-width:600px)    {   
+        display: flex; place-content: center;
+      }
+}
+
+.referal-count  {    font-size: 25px; font-weight: normal; text-align: right;
+    margin-top: -3px;
+}
+.highlite a {
+    font-family: 'coheadlinew08-lightregular';
+    font-size: 37px;
+    color: #0074bc;
+}

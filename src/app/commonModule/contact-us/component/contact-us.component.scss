@@ -1,0 +1,64 @@
+.contactus   {   width:100%; margin:2% 0px 0px 0px; background:none; 
+    text-align: center; color: #fff;letter-spacing: 1px;
+    
+    h1  {   font-size: 34px;  font-family: 'coheadlinew08-lightregular', sans-serif;
+        margin:10px 0px 0px 0px;     
+
+        @media screen and (min-width:200px) and (max-width:399px){
+            font-size: 26px;
+        }
+    }
+
+    @media screen and (min-width:200px) and (max-width:399px){
+        width:80%;
+        margin: 0px auto;
+    }
+
+    @media screen and (min-width:400px) and (max-width:600px)
+    {
+        width:80%;
+        margin: 0px auto;
+    }
+//     @media screen and (min-width: 960px) and (max-width: 1279px)
+//     {
+// width: 100%;
+// margin: 0 auto;
+//     }
+    
+}
+    .contact-link
+    {
+        color: #fff !important;
+        background: #64af02 !important;
+        padding: 0 5px;
+    }
+    
+    .emailText      {        width: 12%; display: inline-block;  
+
+        @media screen and (min-width: 960px) and (max-width: 1279px)  {
+            width:100%;
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 959px)  {
+            width:100%;
+        }
+
+        @media screen and (max-width: 599px)  {
+            width:100%;
+        }
+    }
+    .emailLink      {        width: 15% ;  display: inline-block; 
+
+        @media screen and (min-width: 960px) and (max-width: 1279px)  {
+            width:100%; margin: 2px 0px 0px;
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 959px)  {
+            width:100%; margin: 2px 0px 0px;
+        }
+
+        @media screen and (max-width: 599px)  {
+            width:100%; margin: 2px 0px 0px;
+        }
+    }
+ 

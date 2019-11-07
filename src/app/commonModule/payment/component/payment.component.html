@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="vendor-payment-outer">
+  
+ 
+  <mat-horizontal-stepper class="vendor-content payment-outer"  fusePerfectScrollbar>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup"  >
+              <h1>payment</h1>
+              
+                <div  class="accept-merchant" [hidden]="acceptPaypal"   >
+                    <mat-checkbox  (click)="acceptCheckbox()" [formControl]="firstFormGroup.controls['isTosRead']" ></mat-checkbox> 
+                    <div class="acceptlink"><a routerLink="/terms" target="_blank">i accept terms and conditions</a></div>
+                  </div>
+                 <div [hidden]="!acceptPaypal"  >
+                <ngx-paypal [config]="payPalConfig" ></ngx-paypal>
+                <!-- <div>{{this.onAprooveMsg}}</div> -->
+              </div>
+
+              </form>
+             
+              </mat-step>
+              </mat-horizontal-stepper>
+              </div>
+             

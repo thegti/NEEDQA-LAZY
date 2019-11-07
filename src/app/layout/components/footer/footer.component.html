@@ -1,0 +1,29 @@
+<!-- <mat-toolbar class="foot-div" dir="{{textDir}}"></mat-toolbar> -->
+<mat-toolbar class="foot-div" >
+
+    <div class="foot-links">
+
+        <span class="highlite"><a routerLink="/ihave" >{{ 'NAV.IHAVE' | translate }}</a></span>
+
+        <div fxLayout="row" fxLayoutAlign="start center" fxShow.gt-xs class="links-mob">
+                <a routerLink="/pricing" mat-button >{{ 'NAV.PRICING' | translate }}</a>
+            <a routerLink="/supplier" mat-button>{{ 'NAV.MERCHANT' | translate }}</a>
+            <!-- <span>or</span> -->
+            <a routerLink="/login" mat-button>{{ 'NAV.LOGIN' | translate }}</a>
+            
+            <a routerLink="/privacy" mat-button>{{ 'NAV.PRIVACY' | translate }}</a> 
+                    
+        </div>
+        
+        <div class="watsap-icn"> 
+            <a href="https://api.whatsapp.com/send?phone=97466883800" target="_blank"><img src="assets/home/watsapp-icon.png" alt="watsapp"></a>
+       </div>       
+
+    </div>
+<div class="referal-outer">
+    <span>{{ 'NAV.REFERALS' | translate }}</span><br>
+    <span class="referal-count">{{this.REFERAL_COUNT}}</span>
+</div>
+   <div class="gti-logo">{{ 'NAV.POWEREDBY' | translate }} <a href="http://www.thegti.com/" target="_blank" class="gti"></a></div>
+ 
+</mat-toolbar>

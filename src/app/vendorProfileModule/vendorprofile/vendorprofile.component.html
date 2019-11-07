@@ -1,0 +1,444 @@
+<!-- <app-loader></app-loader> -->
+<div  class="page-layout carded left-sidebar inner-scroll"  >
+
+    <fuse-sidebar class="sidebar"   name="carded-left-sidebar-2" position="left" lockedOpen="gt-md"
+    >
+
+        <div class="content leftsidebar" >
+            <div class="demo-sidebar" fusePerfectScrollbar>
+                <mat-list class="mat-list mat-list-base">
+                    <!-- <h3 matSubheader >vendor profile</h3> -->
+                    <mat-list-item [hidden]="!IsAdmin" class="mat-list-item"
+                        [ngClass]="{active:  selectedItem == 'item0'}">
+                        <span class="mat-list-item-content vendr-list-menu" (click)="vendorlistingClick()">merchant
+                            Listing</span>
+                    </mat-list-item>
+                    <mat-divider [hidden]="!IsAdmin" class="mat-divider mat-divider-horizontal"></mat-divider>
+                    <mat-list-item class="mat-list-item" [ngClass]="{active:  selectedItem == 'item1'}">
+                        <span (click)="sidebarMenu('item1') " class="mat-list-item-content ">merchant profile</span>
+                    </mat-list-item>
+                    <mat-divider class="mat-divider mat-divider-horizontal"></mat-divider>
+
+                    <mat-list-item class="mat-list-item" [ngClass]="{active:  selectedItem == 'item2'}">
+                        <span (click)="sidebarMenu('item2')" class="mat-list-item-content">account status</span>
+                    </mat-list-item>
+                    <mat-divider class="mat-divider mat-divider-horizontal"></mat-divider>
+
+                    <mat-list-item class="mat-list-item" [ngClass]="{active:  selectedItem == 'item3'}">
+                        <span (click)="sidebarMenu('item3')" class="mat-list-item-content">load keywords</span>
+                    </mat-list-item>
+                    <mat-divider class="mat-divider mat-divider-horizontal"></mat-divider>
+
+                    <mat-list-item class="mat-list-item" [ngClass]="{active:  selectedItem == 'item4'}">
+                        <span (click)="sidebarMenu('item4')" class="mat-list-item-content">sales lead setup</span>
+                    </mat-list-item>
+                    <mat-divider class="mat-divider mat-divider-horizontal"></mat-divider>
+
+                    <!-- <mat-list-item class="mat-list-item" [ngClass]="{active:  selectedItem == 'item5'}">
+                        <span (click)="sidebarMenu('item5')" class="mat-list-item-content">reports</span>
+                    </mat-list-item> -->
+                    <mat-list-item class="mat-list-item" >
+                        <span (click)="ReportSidebarMenu()" class="mat-list-item-content">reports</span>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+
+
+        </div>
+        <!-- / SIDEBAR CONTENT -->
+        <!-- <div class="sidebar-overlay"></div> -->
+    </fuse-sidebar>
+    <!-- / SIDEBAR -->
+
+    <!-- CENTER -->
+    <div class="center" fxLayout="row">
+        <div class="toolbar">
+            <button mat-icon-button class="sidebar-toggle" fxHide.gt-md fxShow.gt-sm
+                (click)="toggleSidebar('carded-left-sidebar-2')">
+                <!-- <mat-icon>menu</mat-icon> -->
+                <i class="material-icons">menu</i>
+            </button>
+        </div>
+        <div class="vendor-cont-outer">
+            <mat-horizontal-stepper class="vendor-content" fusePerfectScrollbar>
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                        <div class="vendr-name">
+                            <mat-label>{{VendorRegistrationName}}</mat-label>
+                        </div>
+                        <!-- Item 1 -->
+                        <div class="demo-content" [hidden]="selectedItem != 'item1'">
+                            
+                            <div>
+                                <mat-label class="lft-lbl">merchant registration id</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorRegistrationId}}</mat-label>
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">registered name</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorRegistrationName}}</mat-label>
+                            </div>
+
+                            <div>
+                                <mat-label class="lft-lbl">address</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorAddress}}</mat-label>
+
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">po box</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorPin}}</mat-label>
+
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">city</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorCity}}</mat-label>
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">country</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorCountry}}</mat-label>
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">mob</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorMob}}</mat-label>
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">crn no / qid</mat-label>
+                                <span class="mid-lbl">:</span>
+                                <mat-label class="rgt-lbl">{{VendorCrn}}</mat-label>
+
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">registered email id</mat-label>
+                                <span class="mid-lbl"> :</span>
+                                <mat-label class="rgt-lbl">{{VendorEmail}}</mat-label>
+                                <button mat-raised-button type="button" (click)="EmailChangeButton()"
+                                    class="min-max110">
+                                    change email
+                                </button>
+                            </div>
+                            
+                        </div>
+                        <!-- Item 2 -->
+
+                        <div class="demo-content" [hidden]="selectedItem != 'item2'">
+                            <div>
+                                <mat-label class="lft-lbl">status</mat-label>
+                                <span class="mid-lbl"> :</span>
+                                <mat-label class="rgt-lbl">{{VendorStatus}}</mat-label>
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">account expiry</mat-label>
+                                <span class="mid-lbl"> :</span>
+                                <mat-label class="rgt-lbl">{{VendorExpiry}}</mat-label>
+                                <button mat-raised-button type="button" (click)="PlanRenewalButton()"
+                                    class="min-max110">
+                                    plan renewal
+                                </button>
+                            </div>
+                            <div>
+                                <mat-label class="lft-lbl">plan</mat-label>
+                                <span class="mid-lbl"> :</span>
+                                <mat-label class="rgt-lbl">{{VendorPlan}}</mat-label>
+                            </div>
+
+
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="demo-content" [hidden]="selectedItem != 'item3'" fusePerfectScrollbar>
+                            <mat-tab-group>
+                                <mat-tab label="english">
+
+                                    <div>
+                                        <div class="upload-outer">
+                                            <div class="upload">
+                                              
+                                                  
+                                                    <input type="file" #csvupload formControlName="csvUpload" (change)="onSelectionchange($event)"
+                                                      style="display:none">
+                                                    <button type="button"  mat-raised-button class="uplodcsv" (click)="csvupload.click()">  upload csv</button>
+                                                    
+                                                    <div class="brows-lbl" [hidden]="!filenames" style="justify-content: flex-start;"> {{ fileName }} </div>                                      
+                                              
+                                                    <div class="csvupload disp-inlne-blk margn-btm8" [hidden]="!IsHideCsvUploadDiv">
+                                                        <button  mat-raised-button
+                                                          (click)="csvUploadSave()"
+                                                          class="activate-btn">save</button>
+                                                       
+                                                      </div>
+
+                                            </div>
+                                            
+                                             
+
+                                            <div class="add-new-btn">
+                                                <div [hidden]="IsHideUploadDiv">
+                                                    <button mat-raised-button type="button"
+                                                        (click)="AddKeywordButton()">
+                                                        add new keyword
+                                                    </button>
+                                                </div>
+                                                <div class="keywordadd" [hidden]="!IsHideUploadDiv">
+                                                    <mat-form-field>
+                                                        <input matInput type="text" class="relativePosition"
+                                                            (change)="ChangeText()" formControlName="txtKeyword"
+                                                            maxlength="50" required>
+                                                        <mat-error>enter keyword</mat-error>
+                                                    </mat-form-field>
+
+                                                    <div class="repeatkeyword">{{this.keywordErrorMsg}}</div>
+                                                    <button type="button" mat-raised-button
+                                                        [disabled]="(firstFormGroup.value.txtKeyword.length === 0 )"
+                                                        (click)="AddNewKeywordButton()">add</button>
+
+                                                    <button type="button" mat-raised-button
+                                                        (click)="CancelNewKeywordButton()">cancel</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="keyword-list" fusePerfectScrollbar>
+                                            <table mat-table [dataSource]="dataSource">
+
+                                                <ng-container matColumnDef="checkbox">
+                                                    <th mat-header-cell *matHeaderCellDef>
+
+                                                    </th>
+                                                    <td mat-cell *matCellDef="let row; let i = index">
+                                                        <mat-checkbox [value]="row.VKW_KWORD"></mat-checkbox>
+                                                    </td>
+                                                </ng-container>
+
+
+
+                                                <ng-container matColumnDef="VKW_KWORD">
+                                                    <th mat-header-cell *matHeaderCellDef> keywords </th>
+                                                    <td mat-cell *matCellDef="let row"> {{row.VKW_KWORD}}</td>
+                                                </ng-container>
+                                                <ng-container matColumnDef="Edit">
+                                                    <th mat-header-cell *matHeaderCellDef class="txt-rgt"
+                                                        style="width:17%"></th>
+                                                    <td mat-cell *matCellDef="let row" class="txt-rgt"
+                                                        style="width:17%">
+                                                        <button type="button" mat-mini-fab color="basic"
+                                                            (click)="forEdit(row)" class="btn-list w22 btn-margn">
+                                                            <!-- <mat-icon>edit</mat-icon> -->
+                                                            <i class="material-icons mat-icon">edit</i>
+                                                        </button>
+                                                        <button type="button" mat-mini-fab color="basic"
+                                                            class="btn-list w22 btn-margn" (click)="forDelete(row)">
+                                                            <!-- <mat-icon>delete</mat-icon> -->
+                                                            <i class="material-icons mat-icon">delete</i>
+                                                        </button>
+                                                    </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="keyword-csv">
+                                        <h2>keywords csv upload</h2>
+                                        <div class="dwnlod-sample">
+                                           
+                                                    <button type="button" mat-raised-button> <a download="samplecsvfile" target="_blank" href="/assets/samplecsvfile.txt" style="color: #fff;"> 
+                                                        download sample csv
+                                                    </a></button> 
+                                               
+                                        </div>
+                                        <p class="bord-botm">please download the format before uploading your file and
+                                            make sure that your csv file should match with that format</p>
+
+                                        <div class="upload-sectn">
+
+                                            <!-- <input type="file" #profilepic formControlName="photo"
+                                                (change)="onSelectionchange($event)" (change)="detectFiles($event)"
+                                                style="display:none"> -->
+                                                <input type="file" #profilepic formControlName="photo"
+                                                (change)="onSelectionchange($event)" 
+                                                style="display:none">
+                                            <button type="button" class="browse-btn-uplod" (click)="profilepic.click()">
+                                                choose file</button>
+
+
+                                        </div>
+                                        <div class="upload-btn">
+                                            <button mat-raised-button (click)="uploadCsvButton()">
+                                                upload
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </mat-tab>
+                                <mat-tab label="arabic"> arabic </mat-tab>
+                            </mat-tab-group>
+
+                        </div>
+
+                     
+                        <!-- Item 4 -->
+                        <div class="demo-content" [hidden]="selectedItem != 'item4'" >
+                               
+                            <div tab-index=1 class="sales-div">
+                                <mat-label class="sales-lbl">email to which sales leads to be shared</mat-label>
+                                
+                                <mat-form-field appearance="outline" fxFlex="50">
+                                    <input type="text" matInput formControlName="txtEmail" maxlength="50"  
+                                        [value]="vendorEmail" placeholder="email">
+                                    <mat-error *ngIf=" formControls.txtEmail.errors && formControls.txtEmail.touched"
+                                        class="invalid-feedback">
+                                        <mat-error *ngIf="formControls.txtEmail.errors.required">email is required
+                                        </mat-error>
+                                        <mat-error
+                                            *ngIf="formControls.txtEmail.errors.email&& formControls.txtEmail.errors">
+                                            enter valid email address</mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+        
+
+                            <div tab-index=2 class="sales-div">
+                                <mat-label class="sales-lbl">mobile number to which sales leads to be shared</mat-label>
+                                
+                                <mat-form-field appearance="outline" fxFlex="50" class="sales-select">
+                                        <mat-select formControlName="ddlMobileCode"  placeholder="code"  class="unit-select">
+                                                <mat-option *ngFor="let type of countrycode" [value]="type['CNT_PHONE_CODE']">
+                                                  {{type['CNT_PHONE_CODE']  }}
+                                                </mat-option>
+                                              </mat-select>
+                               </mat-form-field>
+
+                                <mat-form-field appearance="outline" fxFlex="50" class="mob-input" >
+                                    <input matInput type="text" formControlName="txtSalesMobile"
+                                        [value]="vendorSalesMobile" placeholder="mobile number" autocomplete="off" [readOnly]="readonlyMobile" 
+                                        (keypress)="numericOnly($event)" maxlength="10" >
+
+                                    <mat-error
+                                        *ngIf="formControls.txtSalesMobile.errors && formControls.txtSalesMobile.touched"
+                                        class="invalid-feedback">
+                                        <!-- <mat-error *ngIf="formControls.txtSalesMobile.errors.required">enter mobile
+                                            number </mat-error> -->
+                                        <mat-error *ngIf="formControls.txtSalesMobile.errors.pattern ">enter valid
+                                            mobile number </mat-error>
+                                    </mat-error>
+                                 
+                                </mat-form-field>
+                                 <mat-checkbox (change)="SelectMobileTypes(IsMobileUse)"   [checked]="IsMobileUse" [value]="IsMobileUse"  >select this number</mat-checkbox>   
+                               
+                            </div>
+
+                            <div tab-index=3 class="sales-div">
+                                <mat-label class="sales-lbl">whatsapp number to which sales leads to be shared</mat-label>
+                                    
+                              
+                                        <mat-form-field appearance="outline" fxFlex="50" class="sales-select">
+                                        <mat-select formControlName="ddlWhatsappCode" placeholder="code" class="unit-select">
+                                                <mat-option *ngFor="let type of countrycode" [value]="type['CNT_PHONE_CODE']" >
+                                                  {{type['CNT_PHONE_CODE']  }}
+                                                </mat-option>
+                                              </mat-select>
+                                              </mat-form-field>
+                                              <mat-form-field appearance="outline" fxFlex="50" class="mob-input" >
+                                    <input matInput type="text" formControlName="txtWhatsappMobile" readonly [readOnly]="readonlyWhatsapp" 
+                                        [value]="vendorWhatsappMobile" placeholder="mobile number" autocomplete="off"
+                                        (keypress)="numericOnly($event)" maxlength="10">
+                                    <mat-error
+                                        *ngIf="formControls.txtWhatsappMobile.errors && formControls.txtWhatsappMobile.touched"
+                                        class="invalid-feedback">
+                                        <mat-error *ngIf="formControls.txtWhatsappMobile.errors.pattern ">enter valid
+                                            mobile number </mat-error>
+                                    </mat-error>
+                                   
+                                </mat-form-field>
+                      
+                                <mat-checkbox  (change)="SelectWhatsappMobileTypes(IsWhatsappeUse)" [checked]="IsWhatsappeUse" [value]="IsWhatsappeUse">select this number</mat-checkbox> 
+                              
+                            </div>
+
+                            <div tab-index=4 class="sales-div">
+                                <mat-label class="sales-lbl">i want sales leads for </mat-label>
+                                <mat-radio-group >
+                                    <mat-radio-button  value="1" name="PersonalUse" [checked]="IsPersonalUse"
+                                        (change)="SelectUseTypes($event)">personal use</mat-radio-button>
+                                    <mat-radio-button value="2" name="BusinessUse" [checked]="IsBusinessUse"
+                                        (change)="SelectUseTypes($event)">business use</mat-radio-button>
+                                    <mat-radio-button value="3" name="Both" [checked]="IsBoth"
+                                        (change)="SelectUseTypes($event)">both</mat-radio-button>
+                                </mat-radio-group>
+
+
+                            </div>
+
+                            <div tab-index=5 class="sales-div">
+                                <mat-label class="sales-lbl">i want sales leads for </mat-label>
+                                <mat-radio-group>
+                                    <mat-radio-button value="1" name="ProductType" [checked]="IsProductType"
+                                        (change)="SelectProductTypes($event)"> product</mat-radio-button>
+                                    <mat-radio-button value="2" name="ServiceType" [checked]="IsServiceType"
+                                        (change)="SelectProductTypes($event)">service</mat-radio-button>
+                                    <mat-radio-button value="3" name="BothType" [checked]="IsBothType"
+                                        (change)="SelectProductTypes($event)">both</mat-radio-button>
+                                </mat-radio-group>
+
+                            </div>
+                            <div tab-index=6 class="sales-div sales-span">
+                                <mat-label class="sales-lbl">i want sales leads with </mat-label>
+                                <mat-radio-group class="radioPersonal">
+                                    <mat-radio-button value="1" name="ValueType" [checked]="IsValueType"
+                                        (change)="SelectValueTypes($event)"> any value</mat-radio-button>
+                                
+                                    <mat-radio-button value="2" name="GreaterValueType" [checked]="IsGreaterValueType"
+                                        (change)="SelectValueTypes($event)" style="width:260px;">more than qr 
+                                    </mat-radio-button>
+                                    <input matInput type="text" class="valuetext" formControlName="txtValue"
+                                        (keypress)="numericOnly($event)" maxlength="8" placeholder="value"
+                                        autocomplete="off"><span style="vertical-align: bottom">only <span class="onlyValue">(qr.3.64=1 usd)</span></span>
+                                </mat-radio-group>
+
+                            </div>
+                            <div class="fixd-div">
+                                <button type="button" mat-raised-button
+                                    [disabled]="firstFormGroup.controls['txtEmail'  ].invalid"
+                                    (click)="SaveSalesLeadButton()">
+                                    save
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- Item 5 -->
+                        <!-- <div class="demo-content" [hidden]="selectedItem != 'item5'">
+                            <div class="report-div">
+                                <mat-label>sales leads generated</mat-label>
+                                <mat-form-field>
+                                    <select matNativeControl required>
+                                        <option value="volvo">1000</option>
+                                        <option value="saab">2000</option>
+                                        <option value="mercedes">2500</option>
+                                        <option value="audi">4000</option>
+                                    </select>
+                                </mat-form-field>
+                                <button type="button" mat-raised-button (click)="GenerateButton()" class="min-max110">
+                                    generate
+                                </button>
+                            </div>
+                        </div> -->
+
+                    </form>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+
+    </div>
+
+</div>
